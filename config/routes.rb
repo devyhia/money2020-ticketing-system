@@ -10,6 +10,8 @@ Ticksys::Application.routes.draw do
   get "/scan" => "home#scan"
   get "/charge" => "home#charge"
   post "/post_charge" => "home#post_charge"
+
+  get '/api/:action', controller: 'api', defaults: {format: :json}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

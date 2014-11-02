@@ -23,13 +23,13 @@ class HomeController < ApplicationController
   		amount: 6.64,
   		invoice_id: "CHRGE20-#{current_user.id}"})
   
-  ap res
-	if res[:CmdStatus].downcase == "approved"
-		current_user.balance += 20
-		current_user.save
-	end
+    ap res
+  	if res[:CmdStatus].downcase == "approved"
+  		current_user.balance += 20
+  		current_user.save
+  	end
 
-	return redirect_to '/'
+  	return redirect_to '/'
   end
 
   protected

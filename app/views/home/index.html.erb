@@ -6,7 +6,7 @@
 </style>
 <div class='text-center'>
 	<h3>CREDIT</h3>
-	<h1 class='balance'>
+	<h1 id='blnc' class='balance'>
 		$<%= current_user.balance %>
 	</h1>
 	<p>
@@ -21,4 +21,20 @@
 $('#charge').click(function() {
 	location.href= '/charge';
 });
+</script>
+
+<script type="text/javascript">
+function updateBalance() {
+	$.ajax({
+	  url: "/api/get_balance",
+	  data: {
+	  	token: __TOKEN,
+	  	id: __ID
+	  }
+	}).done(function(data) {
+	  $('#blnc').text("$"+data["balance"]);
+	});
+}
+
+setInterval(updateBalance, 1000);
 </script>

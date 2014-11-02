@@ -9,6 +9,8 @@
   <meta name="robots" content="index, follow"/>
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="/assets/plugins/jquery-1.8.2/jquery-1.8.2.min.js"></script>
+
 <title>Web QR</title>
 
 <style type="text/css">
@@ -115,39 +117,59 @@ li a{
 </style>
 
 <script type="text/javascript" src="llqrcode.js"></script>
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 <script type="text/javascript" src="webqr.js"></script>
 
-<script type="text/javascript">
+<style type="text/css">
+.status {
+    background-color: #fff;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+}
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-24451557-1']);
-  _gaq.push(['_trackPageview']);
+#status-success {
+    padding-top: 5em;
+}
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+#status-success p:first-child {
+    font-size: 86px
+    font-weight: 200;
+}
 
-</script>
+#status-success p:last-child {
+    font-size: 48px;
+}
+
+#status-failure p:first-child {
+    font-size: 86px;
+    font-weight: 200;
+}
+
+#status-failure p:last-child {
+    font-size: 48px
+}
+
+#status-charging p:first-child {
+    font-size: 48px
+}
+</style>
 
 </head>
 
 <body>
-<div id="main">
-<div id="header">
-<div style="position:relative;top:+20px;left:0px;"><g:plusone size="medium"></g:plusone></div>
-<p id="mp1">
-QR Code scanner
-</p>
-<ul>
-<li><a href="index.html">Scan</a></li>
-<li><a href="create.html">Create</a></li>
-<li><a href="about.html">About</a></li>
-<li style="border: medium none;"><a href="contact.html">Contact</a></li>
-</ul>
+<div id="status-charging" class='status text-center'>
+    <p>Recharging ...</p>
 </div>
+<div id="status-success" class='status text-center'>
+    <p>$1.5</p>
+    <p>was charged successfully!</p>
+</div>
+<div id="status-failure" class='status text-center'>
+    <p>Failure</p>
+    <p>Not enough balance. Please, recharge!</p>
+</div>
+<div id="main">
 <div id="mainbody">
 <table class="tsel" border="0" width="100%">
 <tr>
@@ -180,142 +202,3 @@ QR Code scanner
 </body>
 
 </html>
-
-<!-- 
-<html>
-<head>
-  <meta name="description" content="QR Code scanner" />
-  <meta name="keywords" content="qrcode,qr code,scanner,barcode,javascript" />
-  <meta name="language" content="English" />
-  <meta name="copyright" content="Lazar Laszlo (c) 2011" />
-  <meta name="Revisit-After" content="1 Days"/>
-  <meta name="robots" content="index, follow"/>
-  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Web QR</title>
-
-<style type="text/css">
-body{
-    width:100%;
-    text-align:center;
-}
-img{
-    border:0;
-}
-#main{
-    margin: 15px auto;
-    background:white;
-    overflow: auto;
-	width: 100%;
-}
-#header{
-    background:white;
-    margin-bottom:15px;
-}
-#mainbody{
-    background: white;
-    width:100%;
-	display:none;
-}
-#footer{
-    background:white;
-}
-#v{
-    width:100%;
-    height:100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: black;
-}
-
-body {
-	overflow: hidden;
-
-}
-#qr-canvas{
-    display:none;
-}
-#qrfile{
-    width:100%;
-    height:100%;
-}
-#mp1{
-    text-align:center;
-    font-size:35px;
-}
-#imghelp{
-    position:relative;
-    left:0px;
-    top:-160px;
-    z-index:100;
-    font:18px arial,sans-serif;
-    background:#f0f0f0;
-	margin-left:35px;
-	margin-right:35px;
-	padding-top:10px;
-	padding-bottom:10px;
-	border-radius:20px;
-}
-.selector{
-    margin:0;
-    padding:0;
-    cursor:pointer;
-    margin-bottom:-5px;
-}
-#outdiv
-{
-    width:100%;
-    height:100%;
-}
-#result{
-    border: solid;
-	border-width: 1px 1px 1px 1px;
-	padding:20px;
-	width:70%;
-	display: none;
-}
-
-ul{
-    margin-bottom:0;
-    margin-right:40px;
-}
-li{
-    display:inline;
-    padding-right: 0.5em;
-    padding-left: 0.5em;
-    font-weight: bold;
-    border-right: 1px solid #333333;
-}
-li a{
-    text-decoration: none;
-    color: black;
-}
-
-#footer a{
-	color: black;
-}
-.tsel{
-    padding:0;
-}
-
-</style>
-
-<script type="text/javascript" src="/llqrcode.js"></script>
-<script type="text/javascript" src="/webqr.js"></script>
-
-</head>
-
-<body>
-<div id="main">
-<div id="mainbody">
-</div>&nbsp;
-</div>
-<div id="outdiv">
-</div>
-<div id="result"></div>
-<canvas id="qr-canvas" width="800" height="600"></canvas>
-<script type="text/javascript">load();</script>
-</body>
-
-</html> -->

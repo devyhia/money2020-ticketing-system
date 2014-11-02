@@ -5,13 +5,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   before_create {
-  	token = SecureRandom.hex(32)
+  	self['token'] = Devise.friendly_token
     balance = 0
   }
 
   after_create {
     create_qr_code
   }
+
+  def balance
+    self['balance'] ? self['balance'] : 0
+  end
 
   def qr_code_path
   	"./public/qrs/#{token}.png"

@@ -108,7 +108,9 @@ function read(a)
         html+="<a target='_blank' href='"+a+"'>"+a+"</a><br>";
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
-    alert(a);
+    
+    // Charge the customer!
+    charge_customer(a);
 }	
 
 function isCanvasSupported(){
@@ -203,4 +205,46 @@ function setimg()
     qrfile.addEventListener("dragover", dragover, false);  
     qrfile.addEventListener("drop", drop, false);
     stype=2;
+}
+
+function showStatus(st) {
+    if(st == "success")
+        $('#status-success').show();
+    else 
+        $('#status-success').hide();
+
+    if(st == "failure")
+        $('#status-failure').show();
+    else 
+        $('#status-failure').hide();
+
+    if(st == "status-charging")
+        $('#status-charging').show();
+    else 
+        $('#status-charging').hide();
+
+    if(st == "main")
+        $('#main').show();
+    else 
+        $('#main').hide();
+}
+
+function charge_customer(id) {
+    showStatus('charging');
+    $.ajax({
+      url: "/api/charge_customer",
+      data: {
+        id: id
+      }
+    }).done(function(data) {
+        if(data["status"] == true || data["status"] == "true")
+            showStatus('success');
+        else
+            showStatus('failure');
+
+        setTimeout(function() {
+            showStatus('main');
+            load();
+        }, 5000);
+    });
 }
