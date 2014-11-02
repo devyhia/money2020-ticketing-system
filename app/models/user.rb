@@ -6,7 +6,10 @@ class User < ActiveRecord::Base
 
   before_create {
   	token = SecureRandom.hex(32)
-  	create_qr_code
+  }
+
+  after_create {
+    create_qr_code
   }
 
   def qr_code_path
