@@ -59,5 +59,6 @@ production:
   database: ticksys_production
   pool: 5
   host: localhost
-  username: ENV["DB_USER"]
-  password: ENV["DB_PASS"]
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASS"] %>
+
