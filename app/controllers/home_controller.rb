@@ -20,12 +20,12 @@ class HomeController < ApplicationController
   		cvc: params[:cvc], 
   		expir_month: params[:exp_month], 
   		expir_year: params[:exp_year], 
-  		amount: 4,
+  		amount: 6.43,
   		invoice_id: "CHRGE20-#{current_user.id}"})
   
     ap res
   	if res[:CmdStatus].downcase == "approved"
-  		current_user.balance += 4
+  		current_user.balance += 4.0
   		current_user.save
   	end
 
