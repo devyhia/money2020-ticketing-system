@@ -34,6 +34,9 @@ end
 
 gem 'devise'
 gem 'rqrcode_png'
+gem 'mercurypay'
+
+gem 'awesome_print'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

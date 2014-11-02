@@ -1,0 +1,43 @@
+<style type="text/css">
+.field {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+</style>
+<div class='text-center'>
+<h2>Charge your account</h2>
+<h3><b>VALUE</b></h3>
+<h1>$20</h1>
+</div>
+<h3><b>Credit Card</b></h3>
+<%= form_tag "/post_charge", method: 'POST' do %>
+	<span class="payment-errors"></span>
+  	<div class='row field'>
+		<div class='col-lg-2 field-label'>Card Number</div>
+		<div class='col-lg-10'>
+			<input type="text" size="20" name='card' placeholder='Card Number' class='form-control'  value='5499990123456781'/>
+		</div>
+	</div>
+
+	<div class='row field'>
+		<div class='col-lg-2 field-label'>CVC</div>
+		<div class='col-lg-10'>
+			<input type="text" size="4" name='cvc' placeholder='CVC' class='form-control' value='123'/>
+		</div>
+	</div>
+
+	<div class='row field'>
+		<div class='col-lg-2 field-label'>Expiration (MM/YYYY)</div>
+		<div class='col-lg-10'>
+			<ul class='list-inline'>
+				<li><input type="text" name='exp_month' size="2" placeholder='MM' class='form-control' value='8'/></li>
+				<li>/</li>
+				<li><input type="text" size="4" name='exp_year' placeholder='YYYY' class='form-control' value='2016' /></li>
+			</ul>
+		</div>
+	</div>
+ 	<div class='field text-center'>
+ 		<button class='btn btn-lg btn-primary btn-block'>Charge Now!</button>
+	</div>
+<% end %>
+  

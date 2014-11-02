@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   before_create {
   	token = SecureRandom.hex(32)
+    balance = 0
   }
 
   after_create {

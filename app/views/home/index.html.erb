@@ -12,4 +12,13 @@
 	<p>
 		<img src="<%= current_user.qr_code_link %>">
 	</p>
+	<p>
+		<a class='btn btn-block btn-danger btn-lg' id='charge'>Charge $20</a>
+	</p>
 </div>
+
+<script type="text/javascript">
+$('#charge').click(function() {
+	location.href= '/charge';
+});
+</script>
