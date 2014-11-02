@@ -130,6 +130,37 @@ li a{
 
 #status-success {
     padding-top: 5em;
+    color: #fff;
+    background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, #023D00),
+    color-stop(1, #308F00)
+    );
+    background-image: -o-linear-gradient(bottom, #023D00 0%, #308F00 100%);
+    background-image: -moz-linear-gradient(bottom, #023D00 0%, #308F00 100%);
+    background-image: -webkit-linear-gradient(bottom, #023D00 0%, #308F00 100%);
+    background-image: -ms-linear-gradient(bottom, #023D00 0%, #308F00 100%);
+    background-image: linear-gradient(to bottom, #023D00 0%, #308F00 100%);
+}
+
+#status-failure {
+    padding-top: 5em;
+    color: #fff;
+    background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, #541515),
+    color-stop(1, #FF2E2E)
+    );
+    background-image: -o-linear-gradient(bottom, #541515 0%, #FF2E2E 100%);
+    background-image: -moz-linear-gradient(bottom, #541515 0%, #FF2E2E 100%);
+    background-image: -webkit-linear-gradient(bottom, #541515 0%, #FF2E2E 100%);
+    background-image: -ms-linear-gradient(bottom, #541515 0%, #FF2E2E 100%);
+    background-image: linear-gradient(to bottom, #541515 0%, #FF2E2E 100%);
+
 }
 
 #status-success p:first-child {
@@ -153,6 +184,11 @@ li a{
 #status-charging p:first-child {
     font-size: 48px
 }
+
+#p-charge {
+    font-size: 150px;
+    line-height: 0;
+}
 </style>
 
 </head>
@@ -162,7 +198,7 @@ li a{
     <p>Recharging ...</p>
 </div>
 <div id="status-success" class='status text-center'>
-    <p>$1.5</p>
+    <p id='p-charge' >$1.5</p>
     <p>was charged successfully!</p>
 </div>
 <div id="status-failure" class='status text-center'>
