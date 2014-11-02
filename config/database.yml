@@ -58,5 +58,6 @@ production:
   encoding: unicode
   database: ticksys_production
   pool: 5
-  username: ticksys
-  password:
+  host: localhost
+  username: postgres
+  password: "developer#2010-1-2"
