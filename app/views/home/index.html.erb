@@ -1,0 +1,15 @@
+<style type="text/css">
+.balance {
+	font-size: 72px;
+	font-weight: 200;
+}
+</style>
+<div class='text-center'>
+	<h3>CREDIT</h3>
+	<h1 class='balance'>
+		$<%= current_user.balance %>
+	</h1>
+	<p>
+		<img src="<%= current_user.qr_code_link %>">
+	</p>
+</div>

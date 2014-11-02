@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <InitializePayment xmlns="http://www.mercurypay.com/">
+      <request>
+        <MerchantID>013163015566916</MerchantID>
+        <Password>ypBj@f@zt3fJRX,k</Password>
+        <Invoice>1234</Invoice>
+        <TotalAmount>2.22</TotalAmount>
+        <TaxAmount>0</TaxAmount>
+        <TranType>Sale</TranType>
+        <Frequency>OneTime</Frequency>
+        <Memo>Team1 money2020</Memo>
+        <ProcessCompleteUrl>http://localhost/test.html</ProcessCompleteUrl>
+        <ReturnUrl>http://localhost/test.html</ReturnUrl>
+        <OperatorID>dano</OperatorID>
+      </request>
+    </InitializePayment>
+  </soap:Body>
+</soap:Envelope>
