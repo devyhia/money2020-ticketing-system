@@ -26,6 +26,6 @@ class User < ActiveRecord::Base
   end
 
   def create_qr_code
-  	RQRCode::QRCode.new("#{id}", :size => 4, :level => :h ).to_img.resize(250,250).save(qr_code_path)
+  	RQRCode::QRCode.new("#{id}", :size => 1, :level => :h ).to_img.resize(250,250).save(qr_code_path)
   end
 end
